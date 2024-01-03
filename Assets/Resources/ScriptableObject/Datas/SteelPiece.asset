@@ -19,6 +19,6 @@ MonoBehaviour:
   rarity: 0
   itemIcon: {fileID: 21300000, guid: 09189cd5e7e02684d9d4599571a0d648, type: 3}
   salePrice: 10
-  canStack: 0
-  maxStack: 9999
+  canStack: 1
+  maxStack: 100
   experience: 10

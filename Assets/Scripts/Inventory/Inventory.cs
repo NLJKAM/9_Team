@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
@@ -21,22 +23,40 @@ public class Inventory : MonoBehaviour
 
     private void Start()
     {
-        GetItem(1);
+        
     }
 
-    public void GetItem(int index)
+    public void GetItem(int index, int amount = 1)
     {
         ItemData data = _itemDataManager.GetItemData(index);
 
         if (data.canStack)
         {
+            // 같은 아이템이 있는지 검사
+            Item item = _itemList.FirstOrDefault(item => item.Data.itemIndex == index);
 
+            if (item != null)
+            {
+                // 추가가 가능한지 확인
+                if (!item.IsMaxStack)
+                {
+                    item.AddAmount(amount);
+                }
+            }
+            else
+            {
+                item = new Item(data);
+                _itemList.Add(item);
+                item.AddAmount(amount);
+            }
         }
         else
         {
-            _itemList.Add(new Item(data));
-            _inventoryUI.InventoryUIAllSlotUpdate();
+            Item item = new Item(data);
+            _itemList.Add(item);
         }
+
+        _inventoryUI.InventoryUIAllSlotUpdate();
     }
 
     public void Init(ItemDataManager itemDataManager)
