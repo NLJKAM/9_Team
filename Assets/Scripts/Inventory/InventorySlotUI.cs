@@ -1,18 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventorySlotUI : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private Button _button;
+    private Image _icon;
+    private TextMeshProUGUI _amountText;
+    private Outline _outline;
+
+    [HideInInspector] public int index;
+
+    private void Awake()
     {
-        
+        _icon = transform.Find("ItemIcon").GetComponent<Image>();
+        _amountText = GetComponentInChildren<TextMeshProUGUI>();
+        _outline = GetComponentInChildren<Outline>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateSlotToItemData (Item item)
     {
-        
+        _icon.sprite = item.Data.itemIcon;
+        _amountText.text = item.Amount.ToString();
     }
 }

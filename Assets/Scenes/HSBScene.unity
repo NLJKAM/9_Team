@@ -499,6 +499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bdef2bd93f533d4d9a189223a92f806, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _inventory: {fileID: 1000749486}
 --- !u!1001 &606616682
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3305,7 +3306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 344b0105f9733d840af2072de941ad57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slots:
+  uiSlots:
   - {fileID: 166981043}
   - {fileID: 750118567}
   - {fileID: 1977510270}

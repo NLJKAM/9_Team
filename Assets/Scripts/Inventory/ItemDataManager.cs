@@ -6,12 +6,15 @@ using UnityEngine;
 public class ItemDataManager : MonoBehaviour
 {
     public static ItemDataManager instance;
+    // 매니저를 전달받을 인벤토리 입니다. 연결이 필요합니다.
+    [SerializeField] private Inventory _inventory;
 
     private Dictionary<int, ItemData> ItemDatas = new Dictionary<int, ItemData>();
 
     private void Awake()
     {
         instance = this;
+        _inventory.Init(this);
 
         ItemDataAllLoad();
     }
