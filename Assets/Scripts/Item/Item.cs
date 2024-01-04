@@ -22,6 +22,6 @@ public class Item
         int newAmount = Amount + amount;
         if (MaxAmount >= newAmount)
             Amount += amount;
-        else Amount += (newAmount - MaxAmount);
+        else Amount += (MaxAmount - Amount);
     }
 }

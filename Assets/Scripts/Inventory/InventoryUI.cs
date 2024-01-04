@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class InventoryUI : MonoBehaviour
 {
@@ -53,8 +54,7 @@ public class InventoryUI : MonoBehaviour
     {
         for (int i = 0; i < uiSlots.Length; i++)
         {
-            if (_inventory.ItemList[i] != null)
-                uiSlots[i].UpdateSlotToItemData(_inventory.ItemList[i]);
+            SlotUIUpdate(i);
         }
     }
 
@@ -62,6 +62,9 @@ public class InventoryUI : MonoBehaviour
     {
         if (!_isOpen) return;
 
-        uiSlots[index].UpdateSlotToItemData(_inventory.ItemList[index]);
+        if(_inventory.ItemList.Count > index)
+            uiSlots[index].UpdateSlotToItemData(_inventory.ItemList[index]);
+        else
+            uiSlots[index].SlotClear();
     }
 }

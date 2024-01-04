@@ -47,9 +47,9 @@ public class InventorySlotUI : MonoBehaviour
         {
             Rarity.Normal => _inventoryUI.gradeOutlines[(int)Rarity.Normal],
             Rarity.Rare => _inventoryUI.gradeOutlines[(int)Rarity.Rare],
+            Rarity.Epic => _inventoryUI.gradeOutlines[(int)Rarity.Epic],
             Rarity.Legendary => _inventoryUI.gradeOutlines[(int)Rarity.Legendary],
             Rarity.Mystic => _inventoryUI.gradeOutlines[(int)Rarity.Mystic],
-            Rarity.Epic => _inventoryUI.gradeOutlines[(int)Rarity.Epic],
             _ => _inventoryUI.gradeOutlines[(int)Rarity.Normal]
         };
     }
