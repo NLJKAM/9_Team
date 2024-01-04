@@ -17,7 +17,7 @@ public class Item
 
     public bool IsEmpty => Amount <= 0;
 
-    public void AddAmount(int amount)
+    public void ModifyAmount(int amount)
     {
         int newAmount = Amount + amount;
         if (MaxAmount >= newAmount)

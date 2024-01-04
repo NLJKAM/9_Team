@@ -19,7 +19,11 @@ public class TestScript : MonoBehaviour
         {
             if (amount >= 0)
             {
-                inventory.GetItem(index, amount);
+                inventory.AddItem(index, amount);
+            }
+            else
+            {
+                inventory.SubtractItem(index, -amount);
             }
         }
     }
