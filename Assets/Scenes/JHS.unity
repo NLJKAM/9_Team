@@ -284,8 +284,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a628475ed611134409c73ed4be170fba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxFarmingGaug: 0
-  currentFarmingGaug: 0
+  MaxFarmingGauge: 0
+  currentFarmingGauge: 0
+  damage: 50
+  attackSpeed: 1
+  monstersLockOnQueue: []
+  attack: 0
 --- !u!1 &154543472
 GameObject:
   m_ObjectHideFlags: 0
