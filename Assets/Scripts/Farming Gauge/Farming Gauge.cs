@@ -12,7 +12,7 @@ public class FarmingGauge : MonoBehaviour
 
     public void EnemyDefeated()
     {
-        float increaseAmount = 10f;
+        float increaseAmount = 2f;
 
         gauge += increaseAmount;
 
