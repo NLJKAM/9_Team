@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3deb4040c0d32804cbe1713bb322fa59, type: 3}
+  m_Name: SteelPiece
+  m_EditorClassIdentifier: 
+  itemIndex: 1
+  itemname: "\uAC15\uCCA0 \uC870\uAC01"
+  description: "\uD754\uD55C \uCCA0 \uC870\uAC01\uC774\uB2E4."
+  itemtype: 0
+  rarity: 0
+  itemIcon: {fileID: 21300000, guid: 09189cd5e7e02684d9d4599571a0d648, type: 3}
+  salePrice: 10
+  canStack: 1
+  maxStack: 100
+  experience: 10
