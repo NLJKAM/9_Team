@@ -22,7 +22,7 @@ public class ItemData : ScriptableObject
 {
     [Header("Base Info")]
     public int itemIndex;
-    public string itemname;
+    public string itemName;
     [TextArea (3, 6)]
     public string description;
     public ItemType itemtype;

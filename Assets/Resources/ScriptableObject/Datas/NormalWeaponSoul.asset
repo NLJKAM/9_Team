@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: NormalWeaponSoul
   m_EditorClassIdentifier: 
   itemIndex: 2
-  itemname: "\uBB34\uAE30\uC758 \uD63C"
+  itemName: "\uBB34\uAE30\uC758 \uD63C"
   description: "\uC77C\uBC18\uC801\uC778 \uBB34\uAE30\uC758 \uC601\uD63C\uC774\uB2E4."
   itemtype: 1
   rarity: 0

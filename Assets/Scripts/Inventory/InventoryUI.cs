@@ -8,12 +8,12 @@ public class InventoryUI : MonoBehaviour
     private Inventory _inventory;
     [SerializeField] private GameObject _inventoryWindow;
     [SerializeField] private GameObject _itemDetailPopupWindow;
+    private ItemDetailInfoPopup _itemDetailInfoPopup;
 
     public InventorySlotUI[] uiSlots;
     public Sprite[] gradeOutlines;  // inspector에서 직접 파일 연결, 등급 순서에 맞게 차례대로 넣기
 
     private bool _isOpen = false;
-    private bool _popupOpen = false;
 
     private void Awake()
     {
@@ -21,6 +21,8 @@ public class InventoryUI : MonoBehaviour
         {
             uiSlots[i].SlotInit(i, this);
         }
+
+        _itemDetailInfoPopup = _itemDetailPopupWindow.GetComponent<ItemDetailInfoPopup>();
     }
 
     private void Start()
@@ -29,6 +31,7 @@ public class InventoryUI : MonoBehaviour
         {
             i.SlotClear();
         }
+        _itemDetailInfoPopup.PopupSlotInit(this);   // 팝업에도 보내줘야됨 ㅠㅠ
     }
 
     public void Init(Inventory inventory)
@@ -70,16 +73,17 @@ public class InventoryUI : MonoBehaviour
             uiSlots[index].SlotClear();
     }
 
-    public void SlotItemInfo(int index, out Item selectitem)
+    public void SlotItemInfo(int index)
     {
         Item item = _inventory.ItemList[index];
-        selectitem = item;
 
-        if (item == null) return;
+        _itemDetailInfoPopup.ItemInfoUpdate(item);
+        _itemDetailInfoPopup.ItemInfoOpen();
+    }
 
-        _popupOpen = !_popupOpen;
-
-        _itemDetailPopupWindow.SetActive(_popupOpen);
-        
+    public bool SlotItemCheck(int index)
+    {
+        Item item = _inventory.ItemList[index];
+        return item != null;
     }
 }

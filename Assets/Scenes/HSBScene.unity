@@ -444,11 +444,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3177223156320676320, guid: 0dfc8318400b4384ebe6f4717b7b9746, type: 3}
   m_PrefabInstance: {fileID: 205641066}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &205641068 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3552286206471316218, guid: 0dfc8318400b4384ebe6f4717b7b9746, type: 3}
-  m_PrefabInstance: {fileID: 205641066}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &235826905
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3901,7 +3896,6 @@ MonoBehaviour:
   itemName: {fileID: 798055001}
   itemType: {fileID: 1452259847}
   itemAmount: {fileID: 1418029538}
-  inventorySlot: {fileID: 205641068}
   itemDescription: {fileID: 594561490}
 --- !u!224 &1251498761
 RectTransform:
@@ -5047,7 +5041,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1536433394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6755,7 +6749,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1954844066
 RectTransform:
   m_ObjectHideFlags: 0

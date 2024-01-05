@@ -24,6 +24,11 @@ public class InventorySlotUI : MonoBehaviour
         _amountText = GetComponentInChildren<TextMeshProUGUI>();
         _outline = GetComponent<Outline>();
         _gradeLine = transform.Find("GradeLine").GetComponent<Image>();
+        _button = GetComponent<Button>();
+    }
+    private void Start()
+    {
+        _button.onClick.AddListener(() => SlotSelect()); // 연결이 귀찮아~
     }
 
     public void UpdateSlotToItemData(Item item)
@@ -45,15 +50,7 @@ public class InventorySlotUI : MonoBehaviour
 
         //테두리 변경
         _gradeLine.gameObject.SetActive(true);
-        _gradeLine.sprite = item.Data.rarity switch
-        {
-            Rarity.Normal => _inventoryUI.gradeOutlines[(int)Rarity.Normal],
-            Rarity.Rare => _inventoryUI.gradeOutlines[(int)Rarity.Rare],
-            Rarity.Epic => _inventoryUI.gradeOutlines[(int)Rarity.Epic],
-            Rarity.Legendary => _inventoryUI.gradeOutlines[(int)Rarity.Legendary],
-            Rarity.Mystic => _inventoryUI.gradeOutlines[(int)Rarity.Mystic],
-            _ => _inventoryUI.gradeOutlines[(int)Rarity.Normal]
-        };
+        _gradeLine.sprite = _inventoryUI.gradeOutlines[(int)item.Data.rarity];
     }
 
     public void SlotClear()
@@ -71,10 +68,11 @@ public class InventorySlotUI : MonoBehaviour
 
     public void SlotSelect()
     {
-        _inventoryUI.SlotItemInfo(_index, out Item item);
-
-        if (item == null) return;
-        _selected = !_selected;
-        _outline.enabled = _selected;
+        if (_inventoryUI.SlotItemCheck(_index))
+        {
+            _inventoryUI.SlotItemInfo(_index);
+            _selected = !_selected;
+            _outline.enabled = _selected;
+        }
     }
 }
