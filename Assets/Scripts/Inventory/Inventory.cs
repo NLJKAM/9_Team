@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    // itemDataManager가 보내줍니다. 매니저한테 Inventory를 연결해주면 됩니다.
+    // 인덱스를 입력받으면 itemDataManager 가 찾아서 보내줍니다. 매니저한테 Inventory를 연결해주면 됩니다.
     private ItemDataManager _itemDataManager;
     [SerializeField] private InventoryUI _inventoryUI;
 
@@ -22,11 +22,6 @@ public class Inventory : MonoBehaviour
     {
         _inventoryUI.Init(this);
         _maxItemList = _inventoryUI.uiSlots.Length;
-    }
-
-    private void Start()
-    {
-
     }
 
     public void AddItem(int index, int amount = 1)
@@ -81,27 +76,45 @@ public class Inventory : MonoBehaviour
 
         if (item == null) return;
 
-        int itemPosition = _itemList.IndexOf(item);
-        if (item.Amount >= amount)
+        if (item.Data.canStack)
         {
-            item.ModifyAmount(-amount);
-            _inventoryUI.SlotUIUpdate(itemPosition);
+            int itemPosition = _itemList.IndexOf(item);
+            if (item.Amount >= amount)
+            {
+                item.ModifyAmount(-amount);
+                _inventoryUI.SlotUIUpdate(itemPosition);
+            }
+            else
+            {
+                item.ModifyAmount(-item.Amount);
+            }
+            if (item.IsEmpty)
+                RemoveItem(item, itemPosition);
         }
         else
         {
-            item.ModifyAmount(-item.Amount);
-        }
-
-        if (item.IsEmpty)
-        {
-            RemoveItem(item);
+            // 중첩 불가능한 경우
+            while (amount > 0)
+            {
+                int itemPosition = _itemList.IndexOf(item);
+                item.ModifyAmount(-item.Amount);
+                if (item.IsEmpty)
+                    RemoveItem(item, itemPosition);
+                amount--;
+                // 삭제하고 다시 찾음
+                item = FindItemInInventory(index);
+                if (item == null) break;
+            }
         }
     }
 
-    public void RemoveItem(Item item)
+    public void RemoveItem(Item item, int itemPosition)
     {
         _itemList.Remove(item);
-        _inventoryUI.AllSlotUIUpdate();
+        for (int i = itemPosition; i <= _itemList.Count; i++)
+        {
+            _inventoryUI.SlotUIUpdate(i);
+        }
     }
 
     public void Init(ItemDataManager itemDataManager)

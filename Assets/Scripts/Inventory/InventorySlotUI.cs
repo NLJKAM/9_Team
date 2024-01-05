@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -15,6 +16,7 @@ public class InventorySlotUI : MonoBehaviour
 
     private InventoryUI _inventoryUI;
     private int _index;
+    private bool _selected;
 
     private void Awake()
     {
@@ -65,5 +67,14 @@ public class InventorySlotUI : MonoBehaviour
     {
         _index = index;
         _inventoryUI = inventoryUI;
+    }
+
+    public void SlotSelect()
+    {
+        _inventoryUI.SlotItemInfo(_index, out Item item);
+
+        if (item == null) return;
+        _selected = !_selected;
+        _outline.enabled = _selected;
     }
 }
