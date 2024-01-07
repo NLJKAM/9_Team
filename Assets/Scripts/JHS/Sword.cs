@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Sword : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class Sword : MonoBehaviour
 
     public List<GameObject> monstersLockOnQueue= new List<GameObject>();
     public static Sword instance;
+    public Slider farmingGauge;
 
     private bool attack;
     private bool onFaint;
@@ -59,6 +61,19 @@ public class Sword : MonoBehaviour
     public void LockOnQueue(GameObject targetQueue)
     {
         monstersLockOnQueue.Add(targetQueue);
+    }
+    public void FarmingMonsterGauge(int monsterFarmingValue)
+    {
+        currentFarmingGauge += monsterFarmingValue;
+        if(currentFarmingGauge >= MaxFarmingGauge)
+        {
+            currentFarmingGauge = MaxFarmingGauge;
+        }
+        FarmingGaugeSet();
+    }
+    public void FarmingGaugeSet()
+    {
+        farmingGauge.value = currentFarmingGauge / MaxFarmingGauge;
     }
     private void OnTriggerEnter2D(Collider2D collision)//아무도 없을때 첫타를 위한 부분
     {

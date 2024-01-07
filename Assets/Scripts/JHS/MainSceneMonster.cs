@@ -5,11 +5,13 @@ using UnityEngine;
 public class MainSceneMonster : MonoBehaviour
 {
     public float speed;
-    private Vector3 playerPos;
     public bool move;
     public float monsterHP;
     public bool hit;
+    public int farmingValue;
+    
     private SpriteRenderer spr;
+    private Vector3 playerPos;
     private void Awake()
     {
         spr = GetComponent<SpriteRenderer>();
@@ -31,6 +33,7 @@ public class MainSceneMonster : MonoBehaviour
         if (monsterHP <= 0)
         {
             Sword.instance.monstersLockOnQueue.Remove(gameObject);
+            Sword.instance.FarmingMonsterGauge(farmingValue);
             Destroy(gameObject);
         }
     }
@@ -59,7 +62,6 @@ public class MainSceneMonster : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            Sword.instance.currentFarmingGauge++;
             move = false;
             Sword.instance.LockOnQueue(gameObject);
         }
