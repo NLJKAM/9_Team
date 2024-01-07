@@ -2,48 +2,50 @@ using UnityEngine;
 
 public class EnhancementSystem : MonoBehaviour
 {
-    public Sword sword; // °­È­¿¡ »ç¿ëµÉ °Ë
-    public int enhancementMaterials = 10; // ÀÓÀÇ·Î ÁöÁ¤ÇØµ×À¸´Ï ³ªÁß¿¡ º¯°æ
-    public int requiredMaterialsPerLevel = 1; // °­È­¿¡ »ç¿ëµÇ´Â Àç·áÀÇ °¹¼ö
+    public Inventory inventory;
+    public Sword sword;
+    public int enhancementMaterialIndex = 0; // ê°•í™” ì¬ë£Œì˜ ì¸ë±ìŠ¤
+    private int currentLevel = 1; // í˜„ì¬ ê°•í™” ë ˆë²¨
+    public bool enhancementSucceeded { get; private set; }
 
-    private void Start()
+    // ê°•í™” ì‹œë„ ë©”ì„œë“œ
+    public void TryEnhance()
     {
-        // ±âº» °Ë ÃÊ±âÈ­
-        sword = new Sword(10.0f); // ÀÓÀÇ·Î ÁöÁ¤ÇØµ×À¸´Ï ³ªÁß¿¡ º¯°æ
-    }
+        enhancementSucceeded = false; // ê¸°ë³¸ì ìœ¼ë¡œ ì‹¤íŒ¨ë¡œ ì„¤ì •
 
-    // °­È­ ½Ãµµ ¸Ş¼­µå
-    public bool TryEnhance()
-    {
-        int requiredMaterials = sword.level * requiredMaterialsPerLevel;
+        int requiredMaterials = RequiredMaterials(currentLevel);
 
-        if (enhancementMaterials < requiredMaterials)
+        if (inventory.GetEnhancementMaterialCount(enhancementMaterialIndex) >= requiredMaterials)
         {
-            Debug.Log("°­È­ Àç·á°¡ ºÎÁ·ÇÕ´Ï´Ù. ÇÊ¿äÇÑ Àç·á: " + requiredMaterials);
-            return false;
-        }
-
-        float successChance = CalculateEnhanceSuccessChance(sword.level);
-
-        if (Random.value < successChance)
-        {
-            sword.Enhance();
-            enhancementMaterials -= requiredMaterials; // ÇÊ¿äÇÑ Àç·áÀÇ ¼ö¸¸Å­ ¼Ò¸ğ
-            Debug.Log("°­È­ ¼º°ø! ÇöÀç ·¹º§: " + sword.level + ", ³²Àº Àç·á: " + enhancementMaterials);
-            return true;
+            EnhanceSword();
+            inventory.SubtractItem(enhancementMaterialIndex, requiredMaterials);
+            enhancementSucceeded = true; // ê°•í™” ì„±ê³µ
         }
         else
         {
-            enhancementMaterials -= requiredMaterials; // ÇÊ¿äÇÑ Àç·áÀÇ ¼ö¸¸Å­ ¼Ò¸ğ
-            Debug.Log("°­È­ ½ÇÆĞ, ³²Àº Àç·á: " + enhancementMaterials);
-            return false;
+            Debug.Log("ê°•í™” ì¬ë£Œê°€ ë¶€ì¡±í•©ë‹ˆë‹¤.");
         }
     }
 
-    // °­È­ ¼º°ø È®·ü °è»ê ¸Ş¼­µå
-    private float CalculateEnhanceSuccessChance(int level)
+    // ê²€ ê°•í™” ë©”ì„œë“œ
+    private void EnhanceSword()
     {
-        //·¹º§¿¡ µû¶ó ¼º°ø È®·üÀÌ ´Ş¶óÁü
-        return Mathf.Clamp(1.0f - (level * 0.05f), 0.1f, 1.0f);
+        // ê°•í™” ë¡œì§ êµ¬í˜„
+        sword.damage *= 1.1f; // ì˜ˆì‹œ: ë°ë¯¸ì§€ë¥¼ 10% ì¦ê°€
+        sword.attackSpeed *= 0.9f; // ì˜ˆì‹œ: ê³µê²© ì†ë„ë¥¼ 10% ì¦ê°€ (ë˜ëŠ” ê°ì†Œ)
+        currentLevel++; // ê°•í™” ë ˆë²¨ ì¦ê°€
+    }
+
+    // í•„ìš”í•œ ì¬ë£Œ ìˆ˜ëŸ‰ ê³„ì‚° ë©”ì„œë“œ
+    private int RequiredMaterials(int level)
+    {
+        // ê¸°ë³¸ì ìœ¼ë¡œ ë ˆë²¨ë§Œí¼ ì¬ë£Œê°€ í•„ìš”
+        int baseMaterials = level;
+
+        // ì¶”ê°€ ì¬ë£Œ: ë§¤ 5ë ˆë²¨ë§ˆë‹¤ 5ê°œì”© ì¶”ê°€
+        int additionalMaterials = (level - 1) / 5 * 5;
+
+        // ì´ í•„ìš”í•œ ì¬ë£Œ ìˆ˜ëŸ‰ = ê¸°ë³¸ ì¬ë£Œ ìˆ˜ëŸ‰ + ì¶”ê°€ ì¬ë£Œ ìˆ˜ëŸ‰
+        return baseMaterials + additionalMaterials;
     }
 }

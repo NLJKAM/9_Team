@@ -113,4 +113,16 @@ public class Inventory : MonoBehaviour
     {
         return _itemList.FirstOrDefault(item => item.Data.itemIndex == index);
     }
+    public int GetEnhancementMaterialCount(int materialIndex)
+    {
+        Item item = FindItemInInventory(materialIndex);
+
+        if (item != null)
+        {
+            return item.Amount;
+        }
+
+        return 0;
+    }
+
 }
