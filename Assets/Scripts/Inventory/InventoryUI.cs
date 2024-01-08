@@ -18,7 +18,7 @@ public class InventoryUI : MonoBehaviour
     public Sprite[] gradeOutlines;  // inspector에서 직접 파일 연결, 등급 순서에 맞게 차례대로 넣기
 
     private int _selectedSlot = -1;
-    private bool _isOpen = false;
+    private bool _isOpen = true;
 
     private void Awake()
     {
@@ -43,6 +43,7 @@ public class InventoryUI : MonoBehaviour
         _closeButton.onClick.AddListener(() => InventoryToggle());
         _popupCloseButton.onClick.AddListener(() => _itemDetailInfoPopup.ItemInfoClose());
         _popupCloseButton.onClick.AddListener(() => SelectedOutlineUnEnable());
+        InventoryToggle();
     }
 
     public void Init(Inventory inventory)
