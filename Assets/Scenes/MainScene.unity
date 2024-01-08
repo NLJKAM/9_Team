@@ -3539,6 +3539,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7550282820113560095, guid: 3c5633bafe8947e49943d0a9548c8189, type: 3}
+      propertyPath: swordHP
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7550282820113560095, guid: 3c5633bafe8947e49943d0a9548c8189, type: 3}
       propertyPath: farmingGauge
       value: 
       objectReference: {fileID: 1358117876}
