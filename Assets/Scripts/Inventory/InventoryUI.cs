@@ -10,6 +10,7 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] private GameObject _inventoryWindow;
     [SerializeField] private GameObject _itemDetailPopupWindow;
     private ItemDetailInfoPopup _itemDetailInfoPopup;
+    public Button _inventoryButton;
     private Button _closeButton;
     private Button _popupCloseButton;
 
@@ -38,6 +39,7 @@ public class InventoryUI : MonoBehaviour
             i.SlotClear();
         }
         _itemDetailInfoPopup.PopupSlotInit(this);   // 팝업에도 보내줘야됨 ㅠㅠ
+        _inventoryButton.onClick.AddListener(() => InventoryToggle());
         _closeButton.onClick.AddListener(() => InventoryToggle());
         _popupCloseButton.onClick.AddListener(() => _itemDetailInfoPopup.ItemInfoClose());
         _popupCloseButton.onClick.AddListener(() => SelectedOutlineUnEnable());
