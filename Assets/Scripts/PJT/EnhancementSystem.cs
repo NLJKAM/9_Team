@@ -11,17 +11,16 @@ public class EnhancementSystem : MonoBehaviour
 
     public void TryEnhance()
     {
-        enhancementSucceeded = false;
         int requiredMaterials = RequiredMaterials(currentLevel);
 
-        if (inventory.GetEnhancementMaterialCount(enhancementMaterialIndex) >= requiredMaterials)
+        if (inventory.HasEnhancementMaterials() && inventory.GetTotalEnhancementMaterialsCount() >= requiredMaterials)
         {
             float currentChance = CalculateEnhancementChance();
             if (Random.value <= currentChance)
             {
                 EnhanceSword();
-                // 임시로 재료 소모를 비활성화
-                // inventory.SubtractItem(enhancementMaterialIndex, requiredMaterials);
+                // 주석을 해제하여 실제 게임에서 재료를 소모하도록 할 수 있습니다.
+                inventory.SubtractItem(enhancementMaterialIndex, requiredMaterials);
                 enhancementSucceeded = true;
             }
             else
