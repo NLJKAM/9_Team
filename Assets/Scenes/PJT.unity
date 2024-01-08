@@ -2131,6 +2131,7 @@ MonoBehaviour:
   inventory: {fileID: 754580165}
   sword: {fileID: 1514870844}
   enhancementMaterialIndex: 0
+  enhancementChanceDecrement: 0.05
 --- !u!1 &635689558
 GameObject:
   m_ObjectHideFlags: 0
@@ -6024,6 +6025,7 @@ MonoBehaviour:
   inventory: {fileID: 754580165}
   sword: {fileID: 1514870844}
   enhancementMaterialIndex: 0
+  enhancementChanceDecrement: 0.05
 --- !u!114 &1770212708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6039,7 +6041,7 @@ MonoBehaviour:
   enhancementSystem: {fileID: 1770212707}
   enhanceButton: {fileID: 622496897}
   materialsCountText: {fileID: 1191507803}
-  enhancementChanceText: {fileID: 0}
+  enhancementChanceText: {fileID: 635689560}
   feedbackText: {fileID: 1738814342}
 --- !u!114 &1770212709
 MonoBehaviour:
