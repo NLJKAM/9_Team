@@ -12,7 +12,7 @@ public class EnhancementUI : MonoBehaviour
 
     void Start()
     {
-        enhanceButton.onClick.AddListener(() => ToggleEnhancementPanel(true));
+        enhanceButton.onClick.AddListener(ToggleEnhancementPanel);
         UpdateUI();
     }
 
@@ -30,7 +30,7 @@ public class EnhancementUI : MonoBehaviour
     {
         enhancementSystem.TryEnhance();
 
-        if (enhancementSystem.enhancementSucceeded)
+        if (enhancementSystem.enhancementSucceeded) 
         {
             feedbackText.text = "강화 성공!";
         }
@@ -43,9 +43,10 @@ public class EnhancementUI : MonoBehaviour
     }
 
 
-    public void ToggleEnhancementPanel(bool isActive)
+    public void ToggleEnhancementPanel()
     {
-        Debug.Log("토글 " + isActive);
+        bool isActive = !enhancementPanel.activeSelf;
+        Debug.Log("토글" + isActive);
         enhancementPanel.SetActive(isActive);
     }
 }

@@ -558,7 +558,7 @@ MonoBehaviour:
       - m_Target: {fileID: 856568234}
         m_TargetAssemblyTypeName: EnhancementUI, Assembly-CSharp
         m_MethodName: ToggleEnhancementPanel
-        m_Mode: 6
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1889,7 +1889,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &856568232
 RectTransform:
   m_ObjectHideFlags: 0
