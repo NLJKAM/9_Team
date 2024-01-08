@@ -42,7 +42,7 @@ public class InventoryUI : MonoBehaviour
     // 온오프 함수이므로 이걸 버튼에 걸어주면 됩니다
     public void InventoryToggle()
     {
-        if (!_inventoryWindow.activeInHierarchy)
+        if (!_isOpen)
         {
             _isOpen = true;
             _inventoryWindow.SetActive(true);
