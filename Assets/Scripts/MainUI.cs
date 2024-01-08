@@ -9,6 +9,8 @@ public class MainUI : MonoBehaviour
     public GameObject farmingWarningPanel;
     public GameObject informationPanel;
     public Text informationText;
+    public Inventory inventory;
+
     public void ExitButton(GameObject panel)
     {
         panel.SetActive(false);
@@ -18,13 +20,14 @@ public class MainUI : MonoBehaviour
         if (tendency)//선한놈
         {
             Sword.instance.holyTendency++;
+            inventory.AddItem(2);
             //선한 선택지 보상
 
         }
         else//악한놈
         {
             Sword.instance.evilTendency++;
-
+            inventory.AddItem(3, 2);
             //악한 선택지 보상
 
         }
