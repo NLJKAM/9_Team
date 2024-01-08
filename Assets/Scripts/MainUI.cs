@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MainUI : MonoBehaviour
 {
     public GameObject farmingPanel;
     public GameObject farmingWarningPanel;
+    public GameObject informationPanel;
+    public Text informationText;
     public void ExitButton(GameObject panel)
     {
         panel.SetActive(false);
@@ -41,5 +44,14 @@ public class MainUI : MonoBehaviour
         {
             farmingWarningPanel.SetActive(true);
         }
+    }
+    public void InformationPanel()
+    {
+        informationPanel.SetActive(true);
+        informationText.text = $"데미지 : {Sword.instance.damage}\n" +
+            $"공격속도 : 한대당 {Sword.instance.attackSpeed}초\n" +
+            $"체력 : {Sword.instance.swordHP}\n" +
+            $"악 성향 : {Sword.instance.evilTendency}\n" +
+            $"선 성향 : {Sword.instance.holyTendency}";
     }
 }
