@@ -8,20 +8,20 @@ public class EnhancementUI : MonoBehaviour
     public Text materialsCountText;
     public Text enhancementChanceText;
     public Text feedbackText;
+    public GameObject enhancementPanel;
 
     void Start()
     {
-        enhanceButton.onClick.AddListener(delegate { TryEnhance(); });
+        enhanceButton.onClick.AddListener(() => ToggleEnhancementPanel(true));
         UpdateUI();
     }
 
     void UpdateUI()
     {
-        // 인벤토리에서 강화 재료의 현재 수량을 가져와서 표시합니다.
-        int materialCount = enhancementSystem.inventory.GetEnhancementMaterialCount(enhancementSystem.enhancementMaterialIndex);
-        materialsCountText.text = "재료 수량: " + materialCount;
 
-        // 강화 확률을 계산하여 표시합니다.
+        int materialCount = enhancementSystem.inventory.GetEnhancementMaterialCount(enhancementSystem.enhancementMaterialIndex);
+        materialsCountText.text = materialCount.ToString();
+
         float enhancementChance = enhancementSystem.CalculateEnhancementChance();
         enhancementChanceText.text = (enhancementChance * 100).ToString("F0") + "%";
     }
@@ -40,5 +40,12 @@ public class EnhancementUI : MonoBehaviour
         }
 
         UpdateUI();
+    }
+
+
+    public void ToggleEnhancementPanel(bool isActive)
+    {
+        Debug.Log("토글 " + isActive);
+        enhancementPanel.SetActive(isActive);
     }
 }

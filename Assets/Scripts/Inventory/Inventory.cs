@@ -137,5 +137,19 @@ public class Inventory : MonoBehaviour
 
         return 0;
     }
+    // 강화 재료의 유형에 해당하는 아이템이 있는지 확인하는 메서드
+    public bool HasEnhancementMaterials()
+    {
+        return _itemList.Any(item => item.Data.itemtype == ItemType.GrowthItems);
+    }
+
+    // 강화 재료의 총 수량을 반환하는 메서드
+    public int GetTotalEnhancementMaterialsCount()
+    {
+        return _itemList
+            .Where(item => item.Data.itemtype == ItemType.GrowthItems)
+            .Sum(item => item.Amount);
+    }
+
 
 }
