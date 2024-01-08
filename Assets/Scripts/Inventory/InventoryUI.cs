@@ -62,6 +62,7 @@ public class InventoryUI : MonoBehaviour
         }
         else
         {
+            Debug.Log("test5");
             _inventoryWindow.SetActive(false);
             _itemDetailInfoPopup.ItemInfoClose();
             SelectedOutlineUnEnable();
@@ -103,6 +104,7 @@ public class InventoryUI : MonoBehaviour
     public bool SlotItemCheck(int index)
     {
         Item item = _inventory.ItemList[index];
+        Debug.Log(item);
         return item != null;
     }
 

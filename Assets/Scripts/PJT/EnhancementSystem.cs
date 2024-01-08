@@ -18,7 +18,7 @@ public class EnhancementSystem : MonoBehaviour
             {
                 EnhanceSword();
                 // 주석을 해제하여 실제 게임에서 재료를 소모하도록 할 수 있습니다.
-                inventory.SubtractItem(enhancementMaterialIndex, requiredMaterials);
+                //inventory.SubtractItem(enhancementMaterialIndex, requiredMaterials);
                 enhancementSucceeded = true;
             }
             else

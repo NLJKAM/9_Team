@@ -73,8 +73,9 @@ public class InventorySlotUI : MonoBehaviour
 
     public void SlotSelect()
     {
+        
         if (_inventoryUI.SlotItemCheck(_index))
-        {
+        {Debug.Log("test");
             _inventoryUI.SlotItemInfo(_index);
         }
     }

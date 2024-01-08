@@ -42,15 +42,22 @@ public class ItemDetailInfoPopup : MonoBehaviour
 
     public void ItemInfoOpen()
     {
-        if (!gameObject.activeInHierarchy)
+        Debug.Log("test2");
+        if (!gameObject.activeSelf)
         {
             gameObject.SetActive(true);
+            Debug.Log("test3");
         }
         PopupPositionUpdate();
+        
     }
 
     public void ItemInfoClose()
-    {
+    {if (!gameObject.activeInHierarchy)
+        {
+            return;
+        }
+        Debug.Log("test4");
         gameObject.SetActive(false);
     }
 
