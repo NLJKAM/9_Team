@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SteelPiece
   m_EditorClassIdentifier: 
   itemIndex: 1
-  itemname: "\uAC15\uCCA0 \uC870\uAC01"
+  itemName: "\uAC15\uCCA0 \uC870\uAC01"
   description: "\uD754\uD55C \uCCA0 \uC870\uAC01\uC774\uB2E4."
   itemtype: 0
   rarity: 0

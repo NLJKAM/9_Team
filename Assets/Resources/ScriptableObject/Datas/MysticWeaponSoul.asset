@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MysticWeaponSoul
   m_EditorClassIdentifier: 
   itemIndex: 4
-  itemname: "\uC2E0\uD654 \uBB34\uAE30\uC758 \uD63C"
+  itemName: "\uC2E0\uD654 \uBB34\uAE30\uC758 \uD63C"
   description: "\uC2E0\uD654\uC801\uC778 \uBB34\uAE30\uC758 \uC601\uD63C\uC774\uB2E4."
   itemtype: 1
   rarity: 4
