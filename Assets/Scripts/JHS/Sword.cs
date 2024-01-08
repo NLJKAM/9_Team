@@ -19,7 +19,7 @@ public class Sword : MonoBehaviour
     public float holyTendency;
     public float evilTendency;
 
-    public List<GameObject> monstersLockOnQueue= new List<GameObject>();
+    public List<GameObject> monstersLockOnQueue = new List<GameObject>();
     public static Sword instance;
     public Slider farmingGauge;
 
@@ -27,16 +27,24 @@ public class Sword : MonoBehaviour
     private bool onFaint;
     private float attackDelayTime;
     private float faintDurationTime;
+    public Sprite[] levelSprites;
+    private SpriteRenderer spriteRenderer;
+    public Sprite[] holyLevelSprites;
+    public Sprite[] evilLevelSprites;
+    private int minLevelForTendency = 5;
+    private float minTendencyValue = 50.0f;
+
     private void Awake()
     {
-        if (instance == null) 
+        if (instance == null)
         {
-            instance = this; 
+            instance = this;
         }
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
     void Update()
     {
-        if(monstersLockOnQueue.Count != 0)
+        if (monstersLockOnQueue.Count != 0)
         {
             AttackTarget();
         }
@@ -65,7 +73,7 @@ public class Sword : MonoBehaviour
     public void FarmingMonsterGauge(int monsterFarmingValue)
     {
         currentFarmingGauge += monsterFarmingValue;
-        if(currentFarmingGauge >= MaxFarmingGauge)
+        if (currentFarmingGauge >= MaxFarmingGauge)
         {
             currentFarmingGauge = MaxFarmingGauge;
         }
@@ -85,11 +93,35 @@ public class Sword : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Monster" &&collision.gameObject == monstersLockOnQueue[0] && attack)
+        if (collision.tag == "Monster" && collision.gameObject == monstersLockOnQueue[0] && attack)
         {
             attack = false;
             collision.gameObject.GetComponent<MainSceneMonster>().hit = true;
             collision.gameObject.GetComponent<MainSceneMonster>().monsterHP -= damage;
+        }
+    }
+    public void UpdateSwordAppearance(int level)
+    {
+
+        if (level >= minLevelForTendency)
+        {
+            if (holyTendency >= minTendencyValue)
+            {
+
+                int spriteIndex = (level / 5) - 1;
+                if (spriteIndex >= 0 && spriteIndex < holyLevelSprites.Length)
+                {
+                    spriteRenderer.sprite = holyLevelSprites[spriteIndex];
+                }
+            }
+            else if (evilTendency >= minTendencyValue)
+            {
+                int spriteIndex = (level / 5) - 1;
+                if (spriteIndex >= 0 && spriteIndex < evilLevelSprites.Length)
+                {
+                    spriteRenderer.sprite = evilLevelSprites[spriteIndex];
+                }
+            }
         }
     }
 }

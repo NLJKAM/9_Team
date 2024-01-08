@@ -5,9 +5,11 @@ public class EnhancementSystem : MonoBehaviour
     public Inventory inventory;
     public Sword sword;
     public int enhancementMaterialIndex = 0;
-    public int currentLevel = 0;
+    public int currentLevel = 1;
     public bool enhancementSucceeded { get; private set; }
     public float enhancementChanceDecrement = 0.05f;
+    public bool isMaterialsEnough { get; private set; }
+
 
     public void TryEnhance()
     {
@@ -39,6 +41,11 @@ public class EnhancementSystem : MonoBehaviour
         sword.damage *= 1.1f;
         sword.attackSpeed *= 0.9f;
         currentLevel++;
+
+        if (currentLevel % 5 == 0) //스프라이트를 5레벨마다 변경해줍니다.
+        {
+            sword.UpdateSwordAppearance(currentLevel);
+        }
     }
 
     private int RequiredMaterials(int level)

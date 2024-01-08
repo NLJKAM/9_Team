@@ -1319,7 +1319,7 @@ MonoBehaviour:
       - m_Target: {fileID: 856568234}
         m_TargetAssemblyTypeName: EnhancementUI, Assembly-CSharp
         m_MethodName: ToggleEnhancementPanel
-        m_Mode: 6
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3911,7 +3911,7 @@ MonoBehaviour:
   inventory: {fileID: 1593267938}
   sword: {fileID: 1490201623}
   enhancementMaterialIndex: 0
-  currentLevel: 0
+  currentLevel: 1
   enhancementChanceDecrement: 0.05
 --- !u!114 &856568234
 MonoBehaviour:
@@ -9676,6 +9676,58 @@ PrefabInstance:
       propertyPath: MaxFarmingGauge
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 7550282820113560095, guid: 3c5633bafe8947e49943d0a9548c8189, type: 3}
+      propertyPath: levelSprites.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7550282820113560095, guid: 3c5633bafe8947e49943d0a9548c8189, type: 3}
+      propertyPath: levelSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 4288251886331194031, guid: 545f9c74323fe914c829180b85afb1b7, type: 3}
+    - target: {fileID: 7550282820113560095, guid: 3c5633bafe8947e49943d0a9548c8189, type: 3}
+      propertyPath: levelSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: -3995535033364917351, guid: 545f9c74323fe914c829180b85afb1b7, type: 3}
+    - target: {fileID: 7550282820113560095, guid: 3c5633bafe8947e49943d0a9548c8189, type: 3}
+      propertyPath: levelSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 7227792136896281944, guid: 545f9c74323fe914c829180b85afb1b7, type: 3}
+    - target: {fileID: 7550282820113560095, guid: 3c5633bafe8947e49943d0a9548c8189, type: 3}
+      propertyPath: levelSprites.Array.data[3]
+      value: 
+      objectReference: {fileID: -668317964234156696, guid: 545f9c74323fe914c829180b85afb1b7, type: 3}
+    - target: {fileID: 7550282820113560095, guid: 3c5633bafe8947e49943d0a9548c8189, type: 3}
+      propertyPath: evilLevelSprites.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7550282820113560095, guid: 3c5633bafe8947e49943d0a9548c8189, type: 3}
+      propertyPath: holyLevelSprites.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7550282820113560095, guid: 3c5633bafe8947e49943d0a9548c8189, type: 3}
+      propertyPath: evilLevelSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 6987770696287736644, guid: 545f9c74323fe914c829180b85afb1b7, type: 3}
+    - target: {fileID: 7550282820113560095, guid: 3c5633bafe8947e49943d0a9548c8189, type: 3}
+      propertyPath: evilLevelSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 768267365400359503, guid: 545f9c74323fe914c829180b85afb1b7, type: 3}
+    - target: {fileID: 7550282820113560095, guid: 3c5633bafe8947e49943d0a9548c8189, type: 3}
+      propertyPath: evilLevelSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 4461641334166435632, guid: 545f9c74323fe914c829180b85afb1b7, type: 3}
+    - target: {fileID: 7550282820113560095, guid: 3c5633bafe8947e49943d0a9548c8189, type: 3}
+      propertyPath: holyLevelSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 1699793054445343852, guid: 545f9c74323fe914c829180b85afb1b7, type: 3}
+    - target: {fileID: 7550282820113560095, guid: 3c5633bafe8947e49943d0a9548c8189, type: 3}
+      propertyPath: holyLevelSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 5015358457507566362, guid: 545f9c74323fe914c829180b85afb1b7, type: 3}
+    - target: {fileID: 7550282820113560095, guid: 3c5633bafe8947e49943d0a9548c8189, type: 3}
+      propertyPath: holyLevelSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: -4375368743273336856, guid: 545f9c74323fe914c829180b85afb1b7, type: 3}
     - target: {fileID: 8857215959424819388, guid: 3c5633bafe8947e49943d0a9548c8189, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -11977,7 +12029,7 @@ MonoBehaviour:
   inventory: {fileID: 0}
   sword: {fileID: 0}
   enhancementMaterialIndex: 0
-  currentLevel: 0
+  currentLevel: 1
   enhancementChanceDecrement: 0.05
 --- !u!114 &2122204186
 MonoBehaviour:
