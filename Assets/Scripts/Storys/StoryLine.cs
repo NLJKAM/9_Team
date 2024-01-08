@@ -28,28 +28,49 @@ public class StoryLine : MonoBehaviour
 
     public void Line1()
     {
-        sequence.Append(text.DOText("안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 " +
-            "안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요" +
-            "안녕하세요 안녕하세요 안녕하세요", 10f).From(""));
+        sequence.Append(text.DOText("첫 번째 스토리 입니다. ", 2f).From(""));
         btn1.gameObject.SetActive(false);
         btn2.gameObject.SetActive(true);
     }
     public void Line2()
     {
-        sequence.Append(text.DOText("제발 돼라 제발 돼라 제발 돼라 제발 돼라 제발 돼라 제발 돼라 제발 돼라 제발 돼라 제발 돼라 " +
-            " 제발 돼라 제발 돼라 제발 돼라 제발 돼라 제발 돼라 제발 돼라 제발 돼라 제발 돼라 제발 돼라 제발 돼라", 10f).From(""));
+        sequence.Append(text.DOText("첫 번째 스토리 2번 대사 입니다. ", 2f).From(""));
         btn2.gameObject.SetActive(false);
         endBtn.gameObject.SetActive(true);
     }
     public void Line21()
     {
-        sequence.Append(text.DOText("이건 어떠냐 이건 어떠냐 이건 어떠냐 이건 어떠냐 이건 어떠냐 이건 어떠냐 이건 어떠냐 이건 어떠냐", 10f).From(""));
+        sequence.Append(text.DOText("두 번째 스토리 입니다. ", 2f).From(""));
         btn1.gameObject.SetActive(false);
         btn2.gameObject.SetActive(true);
     }
     public void Line22()
     {
-        sequence.Append(text.DOText("안 되기만 해? 안 되기만 해? 안 되기만 해? 안 되기만 해? 안 되기만 해? 안 되기만 해? 안 되기만 해? 안 되기만 해?", 10f).From(""));
+        sequence.Append(text.DOText("두 번째 스토리 2번 대사 입니다.", 2f).From(""));
+        btn2.gameObject.SetActive(false);
+        endBtn.gameObject.SetActive(true);
+    }
+    public void Line31()
+    {
+        sequence.Append(text.DOText("세 번째 스토리 입니다. ", 2f).From(""));
+        btn1.gameObject.SetActive(false);
+        btn2.gameObject.SetActive(true);
+    }
+    public void Line32()
+    {
+        sequence.Append(text.DOText("세 번째 스토리 2번 대사 입니다. ", 2f).From(""));
+        btn2.gameObject.SetActive(false);
+        endBtn.gameObject.SetActive(true);
+    }
+    public void Line41()
+    {
+        sequence.Append(text.DOText("네 번째 스토리 입니다. ", 2f).From(""));
+        btn1.gameObject.SetActive(false);
+        btn2.gameObject.SetActive(true);
+    }
+    public void Line42()
+    {
+        sequence.Append(text.DOText("네 번째 스토리 2번 대사 입니다. ", 2f).From(""));
         btn2.gameObject.SetActive(false);
         endBtn.gameObject.SetActive(true);
     }
