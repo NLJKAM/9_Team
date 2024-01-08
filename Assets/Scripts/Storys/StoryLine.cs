@@ -53,8 +53,9 @@ public class StoryLine : MonoBehaviour
         btn2.gameObject.SetActive(false);
         endBtn.gameObject.SetActive(true);
     }
-    public void EndScene()
+    public void EndScene(StoryLinePopup storyLinePopup)
     {
+        storyLinePopup.storyLineIndex++;
         TextBackGround.SetActive(false);
     }
 }
