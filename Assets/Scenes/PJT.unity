@@ -874,86 +874,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 246362811}
   m_CullTransparentMesh: 1
---- !u!1 &445141224
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 445141225}
-  - component: {fileID: 445141227}
-  - component: {fileID: 445141226}
-  m_Layer: 5
-  m_Name: Text (Legacy)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &445141225
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 445141224}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1770212706}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -20, y: -280}
-  m_SizeDelta: {x: 160, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &445141226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 445141224}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 50
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 5
-    m_MaxSize: 50
-    m_Alignment: 0
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 1
-    m_VerticalOverflow: 1
-    m_LineSpacing: 1
-  m_Text: "\uAC15\uD654\uD655\uB960"
---- !u!222 &445141227
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 445141224}
-  m_CullTransparentMesh: 1
 --- !u!1001 &451647850
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2148,7 +2068,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 622496900}
         m_TargetAssemblyTypeName: EnhancementSystem, Assembly-CSharp
-        m_MethodName: EnhanceSword
+        m_MethodName: TryEnhance
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2208,10 +2128,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f4faf86bee45f14a9a35e8c4dd4d79e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sword: {fileID: 0}
-  inventory: {fileID: 0}
+  inventory: {fileID: 754580165}
+  sword: {fileID: 1514870844}
   enhancementMaterialIndex: 0
-  currentLevel: 1
+  enhancementChanceDecrement: 0.05
 --- !u!1 &635689558
 GameObject:
   m_ObjectHideFlags: 0
@@ -2224,7 +2144,7 @@ GameObject:
   - component: {fileID: 635689561}
   - component: {fileID: 635689560}
   m_Layer: 5
-  m_Name: Text (Legacy) (2)
+  m_Name: Percent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2247,7 +2167,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 235, y: -166}
+  m_AnchoredPosition: {x: 235, y: -221.26315}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &635689560
@@ -3484,7 +3404,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &992492787
 Transform:
   m_ObjectHideFlags: 0
@@ -3766,7 +3686,7 @@ GameObject:
   - component: {fileID: 1191507804}
   - component: {fileID: 1191507803}
   m_Layer: 5
-  m_Name: Text (Legacy) (1)
+  m_Name: Remain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5977,7 +5897,7 @@ GameObject:
   - component: {fileID: 1738814343}
   - component: {fileID: 1738814342}
   m_Layer: 5
-  m_Name: Text (Legacy) (3)
+  m_Name: Result
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6079,7 +5999,6 @@ RectTransform:
   m_Children:
   - {fileID: 827610292}
   - {fileID: 622496896}
-  - {fileID: 445141225}
   - {fileID: 1191507802}
   - {fileID: 635689559}
   - {fileID: 1738814341}
@@ -6103,10 +6022,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f4faf86bee45f14a9a35e8c4dd4d79e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventory: {fileID: 754580165}
   sword: {fileID: 1514870844}
-  inventory: {fileID: 0}
   enhancementMaterialIndex: 0
-  currentLevel: 1
+  enhancementChanceDecrement: 0.05
 --- !u!114 &1770212708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6120,11 +6039,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enhancementSystem: {fileID: 1770212707}
-  materialsCountText: {fileID: 1191507803}
-  enhancementChanceText: {fileID: 445141226}
-  swordStatusText: {fileID: 635689560}
-  feedbackText: {fileID: 1738814342}
   enhanceButton: {fileID: 622496897}
+  materialsCountText: {fileID: 1191507803}
+  enhancementChanceText: {fileID: 635689560}
+  feedbackText: {fileID: 1738814342}
 --- !u!114 &1770212709
 MonoBehaviour:
   m_ObjectHideFlags: 0

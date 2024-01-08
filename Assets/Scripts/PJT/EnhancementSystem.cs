@@ -4,22 +4,30 @@ public class EnhancementSystem : MonoBehaviour
 {
     public Inventory inventory;
     public Sword sword;
-    public int enhancementMaterialIndex = 0; // 강화 재료의 인덱스
-    private int currentLevel = 1; // 현재 강화 레벨
+    public int enhancementMaterialIndex = 0;
+    private int currentLevel = 0;
     public bool enhancementSucceeded { get; private set; }
+    public float enhancementChanceDecrement = 0.05f;
 
-    // 강화 시도 메서드
     public void TryEnhance()
     {
-        enhancementSucceeded = false; // 기본적으로 실패로 설정
-
+        enhancementSucceeded = false;
         int requiredMaterials = RequiredMaterials(currentLevel);
 
         if (inventory.GetEnhancementMaterialCount(enhancementMaterialIndex) >= requiredMaterials)
         {
-            EnhanceSword();
-            inventory.SubtractItem(enhancementMaterialIndex, requiredMaterials);
-            enhancementSucceeded = true; // 강화 성공
+            float currentChance = CalculateEnhancementChance();
+            if (Random.value <= currentChance)
+            {
+                EnhanceSword();
+                // 임시로 재료 소모를 비활성화
+                // inventory.SubtractItem(enhancementMaterialIndex, requiredMaterials);
+                enhancementSucceeded = true;
+            }
+            else
+            {
+                Debug.Log("강화에 실패했습니다.");
+            }
         }
         else
         {
@@ -27,25 +35,26 @@ public class EnhancementSystem : MonoBehaviour
         }
     }
 
-    // 검 강화 메서드
     private void EnhanceSword()
     {
-        // 강화 로직 구현
-        sword.damage *= 1.1f; // 예시: 데미지를 10% 증가
-        sword.attackSpeed *= 0.9f; // 예시: 공격 속도를 10% 증가 (또는 감소)
-        currentLevel++; // 강화 레벨 증가
+        sword.damage *= 1.1f;
+        sword.attackSpeed *= 0.9f;
+        currentLevel++;
     }
 
-    // 필요한 재료 수량 계산 메서드
     private int RequiredMaterials(int level)
     {
         // 기본적으로 레벨만큼 재료가 필요
         int baseMaterials = level;
-
         // 추가 재료: 매 5레벨마다 5개씩 추가
         int additionalMaterials = (level - 1) / 5 * 5;
-
-        // 총 필요한 재료 수량 = 기본 재료 수량 + 추가 재료 수량
         return baseMaterials + additionalMaterials;
+    }
+
+   public float CalculateEnhancementChance()
+    {
+        float baseChance = 0.80f; // 기본 80% 확률
+        // 강화 확률은 5레벨마다 감소하게 설정해뒀습니다.
+        return Mathf.Clamp(baseChance - (currentLevel / 5) * enhancementChanceDecrement, 0.0f, 1.0f);
     }
 }

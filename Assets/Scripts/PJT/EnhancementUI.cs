@@ -6,19 +6,24 @@ public class EnhancementUI : MonoBehaviour
     public EnhancementSystem enhancementSystem;
     public Button enhanceButton;
     public Text materialsCountText;
+    public Text enhancementChanceText;
     public Text feedbackText;
-    // 기타 필요한 UI 요소 선언...
 
     void Start()
     {
-        enhanceButton.onClick.AddListener(enhancementSystem.TryEnhance);
+        enhanceButton.onClick.AddListener(delegate { TryEnhance(); });
         UpdateUI();
     }
 
     void UpdateUI()
     {
-        int materialIndex = enhancementSystem.enhancementMaterialIndex;
-        materialsCountText.text = "재료 수량: " + enhancementSystem.inventory.GetEnhancementMaterialCount(materialIndex);
+        // 인벤토리에서 강화 재료의 현재 수량을 가져와서 표시합니다.
+        int materialCount = enhancementSystem.inventory.GetEnhancementMaterialCount(enhancementSystem.enhancementMaterialIndex);
+        materialsCountText.text = "재료 수량: " + materialCount;
+
+        // 강화 확률을 계산하여 표시합니다.
+        float enhancementChance = enhancementSystem.CalculateEnhancementChance();
+        enhancementChanceText.text = (enhancementChance * 100).ToString("F0") + "%";
     }
 
     public void TryEnhance()
