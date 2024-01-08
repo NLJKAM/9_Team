@@ -8,6 +8,8 @@ public class StoryLinePopup : MonoBehaviour
     [SerializeField] private GameObject popup;
     [SerializeField] private GameObject storyLine1;
     [SerializeField] private GameObject storyLine2;
+    [SerializeField] private GameObject storyLine3;
+    [SerializeField] private GameObject storyLine4;
 
     public int storyLineIndex;
 
@@ -28,7 +30,15 @@ public class StoryLinePopup : MonoBehaviour
         else if (storyLineIndex == 2)
         {
             storyLine2.SetActive(true);
-        }        
+        }
+        else if(storyLineIndex == 3)
+        {
+            storyLine3.SetActive(true);
+        }
+        else if (storyLineIndex == 4)
+        {
+            storyLine4.SetActive(true);
+        }
     }
 
     public void DisablePopup()
@@ -42,6 +52,14 @@ public class StoryLinePopup : MonoBehaviour
         else if (storyLineIndex == 2)
         {
             storyLine2.SetActive(false);
+        }
+        else if (storyLineIndex == 3)
+        {
+            storyLine3.SetActive(false);
+        }
+        else if (storyLineIndex == 4)
+        {
+            storyLine4.SetActive(false);
         }
     }
 }
