@@ -28,15 +28,15 @@ public class StoryLinePopup : MonoBehaviour
         {
             storyLine1.SetActive(true);
         }
-        else if (storyLineIndex == 2)
+        else if (storyLineIndex == 2 && enhancementSystem.currentLevel >= 5)
         {
             storyLine2.SetActive(true);
         }
-        else if (storyLineIndex == 3)
+        else if (storyLineIndex == 3 && enhancementSystem.currentLevel >= 10)
         {
             storyLine3.SetActive(true);
         }
-        else if (storyLineIndex == 4)
+        else if (storyLineIndex == 4 && enhancementSystem.currentLevel >= 15)
         {
             storyLine4.SetActive(true);
         }
@@ -50,15 +50,15 @@ public class StoryLinePopup : MonoBehaviour
         {
             storyLine1.SetActive(false);
         }
-        else if (storyLineIndex == 2)
+        else if (storyLineIndex == 2 && enhancementSystem.currentLevel >= 5)
         {
             storyLine2.SetActive(false);
         }
-        else if (storyLineIndex == 3)
+        else if (storyLineIndex == 3 && enhancementSystem.currentLevel >= 10)
         {
             storyLine3.SetActive(false);
         }
-        else if (storyLineIndex == 4)
+        else if (storyLineIndex == 4 && enhancementSystem.currentLevel >= 15)
         {
             storyLine4.SetActive(false);
         }
