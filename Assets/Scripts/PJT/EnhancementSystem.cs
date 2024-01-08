@@ -8,6 +8,8 @@ public class EnhancementSystem : MonoBehaviour
     public int currentLevel = 1;
     public bool enhancementSucceeded { get; private set; }
     public float enhancementChanceDecrement = 0.05f;
+    public bool isMaterialsEnough { get; private set; }
+
 
     public void TryEnhance()
     {

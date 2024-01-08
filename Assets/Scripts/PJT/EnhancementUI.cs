@@ -18,7 +18,7 @@ public class EnhancementUI : MonoBehaviour
 
     void UpdateUI()
     {
-
+        // 재료 수량과 강화 확률을 UI에 표시합니다.
         int materialCount = enhancementSystem.inventory.GetEnhancementMaterialCount(enhancementSystem.enhancementMaterialIndex);
         materialsCountText.text = materialCount.ToString();
 
@@ -28,25 +28,34 @@ public class EnhancementUI : MonoBehaviour
 
     public void TryEnhance()
     {
+        // 강화 시도를 수행합니다.
         enhancementSystem.TryEnhance();
 
-        if (enhancementSystem.enhancementSucceeded) 
+        // 강화 성공 여부에 따라 피드백을 제공합니다.
+        if (enhancementSystem.enhancementSucceeded)
         {
             feedbackText.text = "강화 성공!";
         }
         else
         {
-            feedbackText.text = "강화 실패...";
+            if (!enhancementSystem.isMaterialsEnough)
+            {
+                feedbackText.text = "강화 재료가 부족합니다.";
+            }
+            else
+            {
+                feedbackText.text = "강화 실패...";
+            }
         }
 
         UpdateUI();
     }
 
-
     public void ToggleEnhancementPanel()
     {
+        // 패널의 활성 상태를 토글합니다.
         bool isActive = !enhancementPanel.activeSelf;
-        Debug.Log("토글" + isActive);
         enhancementPanel.SetActive(isActive);
+        Debug.Log("토글" + isActive);
     }
 }
