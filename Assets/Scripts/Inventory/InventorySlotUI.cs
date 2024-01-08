@@ -48,9 +48,12 @@ public class InventorySlotUI : MonoBehaviour
             _amountText.gameObject.SetActive(false);
         }
 
-        //테두리 변경
+        // 테두리 변경
         _gradeLine.gameObject.SetActive(true);
         _gradeLine.sprite = _inventoryUI.gradeOutlines[(int)item.Data.rarity];
+
+        // 아이템이 들어와야 상세정보 클릭이 가능하게 활성화
+        _button.enabled = true;
     }
 
     public void SlotClear()
@@ -58,6 +61,8 @@ public class InventorySlotUI : MonoBehaviour
         _icon.gameObject.SetActive(false);
         _gradeLine.gameObject.SetActive(false);
         _amountText.text = string.Empty;
+
+        _button.enabled = false;
     }
 
     public void SlotInit(int index, InventoryUI inventoryUI)
@@ -71,8 +76,11 @@ public class InventorySlotUI : MonoBehaviour
         if (_inventoryUI.SlotItemCheck(_index))
         {
             _inventoryUI.SlotItemInfo(_index);
-            _selected = !_selected;
-            _outline.enabled = _selected;
         }
+    }
+
+    public void SlotSelectOutlineToggle()
+    {
+        _outline.enabled = !_outline.enabled;
     }
 }
