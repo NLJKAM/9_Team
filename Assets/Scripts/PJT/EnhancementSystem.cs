@@ -5,7 +5,7 @@ public class EnhancementSystem : MonoBehaviour
     public Inventory inventory;
     public Sword sword;
     public int enhancementMaterialIndex = 0;
-    private int currentLevel = 0;
+    public int currentLevel = 0;
     public bool enhancementSucceeded { get; private set; }
     public float enhancementChanceDecrement = 0.05f;
 

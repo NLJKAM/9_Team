@@ -3911,6 +3911,7 @@ MonoBehaviour:
   inventory: {fileID: 1593267938}
   sword: {fileID: 1490201623}
   enhancementMaterialIndex: 0
+  currentLevel: 0
   enhancementChanceDecrement: 0.05
 --- !u!114 &856568234
 MonoBehaviour:
@@ -7985,6 +7986,7 @@ MonoBehaviour:
   informationPanel: {fileID: 913110638}
   informationText: {fileID: 999084292}
   inventory: {fileID: 1593267938}
+  enhancementSystem: {fileID: 0}
 --- !u!114 &1428821093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11975,6 +11977,7 @@ MonoBehaviour:
   inventory: {fileID: 0}
   sword: {fileID: 0}
   enhancementMaterialIndex: 0
+  currentLevel: 0
   enhancementChanceDecrement: 0.05
 --- !u!114 &2122204186
 MonoBehaviour:
