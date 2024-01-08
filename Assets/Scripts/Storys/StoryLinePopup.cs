@@ -12,6 +12,7 @@ public class StoryLinePopup : MonoBehaviour
     [SerializeField] private GameObject storyLine4;
 
     public int storyLineIndex;
+    public EnhancementSystem enhancementSystem;
 
 
     private void Start()
@@ -21,7 +22,7 @@ public class StoryLinePopup : MonoBehaviour
 
     public void OnPopup()
     {
-        popup.SetActive(true);
+        popup.SetActive(true);        
 
         if (storyLineIndex == 1)
         {
@@ -31,7 +32,7 @@ public class StoryLinePopup : MonoBehaviour
         {
             storyLine2.SetActive(true);
         }
-        else if(storyLineIndex == 3)
+        else if (storyLineIndex == 3)
         {
             storyLine3.SetActive(true);
         }
@@ -63,3 +64,4 @@ public class StoryLinePopup : MonoBehaviour
         }
     }
 }
+
